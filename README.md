@@ -7,6 +7,7 @@ This project was built to learn Next.js and TailwindCss. The home page will list
 | Project                | Description                           | Demo                                                                | Frontend Mentor                                                                   |
 | ---------------------- | ------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | profile-card-component | Build a simple profile card component | [link](https://tailwindcss-learn.vercel.app/profile-card-component) | [link](https://www.frontendmentor.io/challenges/profile-card-component-cfArpWshJ) |
+| advice-generator       | An app generating rendom advice       | [link](https://tailwindcss-learn.vercel.app/advice-generator)       | [link](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db)   |
 
 ## Where are the corresponding files?
 
