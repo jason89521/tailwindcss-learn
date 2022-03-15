@@ -18,7 +18,7 @@ const OrderSummary = () => {
           <p className="text-center font-semibold text-slate-400">
             You can now listen to millons of songs, audiobooks, and podcasts on any device anywhere you like!
           </p>
-          <div className="bg-light-blue flex items-center self-stretch rounded-lg px-6 py-3">
+          <div className="bg-light-blue flex items-center self-stretch rounded-lg px-4 py-3">
             <Image src={musicIcon} alt="music icon" />
             <div className="ml-4 mr-auto">
               <h2 className="font-bold">Annual Plan</h2>
