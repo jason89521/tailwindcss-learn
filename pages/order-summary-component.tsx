@@ -37,6 +37,7 @@ const OrderSummary = () => {
         .root {
           background-image: url(${largeBgImage.src});
           background-repeat: no-repeat;
+          background-size: 100%;
           background-color: hsl(225, 100%, 94%);
           font-family: 'Red Hat Display', sans-serif;
         }
