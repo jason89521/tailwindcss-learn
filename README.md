@@ -1,6 +1,6 @@
 # TailwindCss learn
 
-This project was built to learn Next.js and TailwindCss. The home page will list all my completed projects built with tailwindcss and designed by Frontend Mentor in the future.
+This project was built to learn Next.js and TailwindCss. The home page will list all my completed projects in the future. Since the main goal is to learn how to use TailwindCss, the following projects do not focus on too many JavaScript.
 
 ## Projects list
 

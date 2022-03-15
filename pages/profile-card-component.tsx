@@ -12,7 +12,7 @@ const data = [
   { name: 'Photos', amount: '1.4K' },
 ];
 
-const ProfileCardComponent = () => {
+const ProfileCard = () => {
   return (
     <div className="root flex min-h-screen items-center justify-center">
       <div className="overflow-hidden rounded-xl bg-white">
@@ -76,4 +76,4 @@ const ProfileCardComponent = () => {
   );
 };
 
-export default ProfileCardComponent;
+export default ProfileCard;
