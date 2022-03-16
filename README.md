@@ -1,6 +1,6 @@
-# TailwindCss learn
+# Tailwind CSS learn
 
-This project was built to get familiar with TailwindCss. The home page will list all my completed projects in the future. Since the main goal is to get familiar with TailwindCss, the following projects will not focus too many on JavaScript.
+This project was built to get familiar with Tailwind CSS. The home page will list all my completed projects in the future. Since the main goal is to get familiar with Tailwind CSS, the following projects will not focus too many on JavaScript.
 
 ## Projects list
 
