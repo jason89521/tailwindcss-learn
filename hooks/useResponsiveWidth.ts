@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useResponsiveWidth = () => {
+const useResponsiveWidth = <T extends HTMLElement>() => {
   const [width, setWidth] = useState(0);
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<T>(null);
 
   useEffect(() => {
     if (!elementRef.current) return;
