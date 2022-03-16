@@ -6,9 +6,10 @@ const getWindowSize = () => {
 };
 
 const useWindowInnerSize = () => {
-  const [innerSize, setInnerSize] = useState(getWindowSize());
+  const [innerSize, setInnerSize] = useState({ innerWidth: 0, innerHeight: 0 });
 
   useEffect(() => {
+    setInnerSize(getWindowSize());
     const handleResize = () => {
       setInnerSize(getWindowSize());
     };
