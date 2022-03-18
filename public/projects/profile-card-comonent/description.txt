@@ -1,1 +1,1 @@
-profile
+A simple component with responsive design.

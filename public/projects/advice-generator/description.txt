@@ -1,1 +1,1 @@
-advice generator
+Use Advice Slip API to build out this project. The users can generate a new piece of advice by clicking the dice icon.

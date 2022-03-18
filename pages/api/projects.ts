@@ -7,6 +7,7 @@ export type ProjectData = {
   name: string;
   description: string;
   image: string;
+  pageName: string;
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<ProjectData[]>) {
@@ -17,7 +18,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Projec
     const image = `/projects/${projectName}/image.png`;
     const description = fs.readFileSync(`${projectsDir}/${projectName}/description.txt`, 'utf-8');
     const name = projectName.replace(/-/g, ' ');
-    return { name, description, image };
+    const pageName = projectName;
+    return { name, description, image, pageName };
   });
 
   res.status(200).json(data);

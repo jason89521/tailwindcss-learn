@@ -25,8 +25,8 @@ const Home = () => {
         <title>Tailwind CSS learn</title>
       </Head>
 
-      <main className="p-20">
-        <h1 className="mb-10 text-center font-fraunces text-6xl font-bold uppercase text-slate-500">Projects list</h1>
+      <main className="py-20 px-40">
+        <h1 className="mb-10 text-center font-fraunces text-8xl font-bold uppercase text-slate-500">Projects list</h1>
 
         {projects.map(project => {
           return (
@@ -42,7 +42,7 @@ const Home = () => {
                       <Image
                         src={expandMoreIcon}
                         alt="expand more"
-                        className={`${iconRotate} duration-250 transition-transform`}
+                        className={`${iconRotate} duration-300 transition-transform`}
                       />
                       <h2 className="font-fraunces text-4xl font-bold capitalize">{project.name}</h2>
                     </>
@@ -61,7 +61,21 @@ const Home = () => {
                     />
                   </div>
                 </a>
-                <p className="text-xl">{project.description}</p>
+                <div className="flex flex-col justify-between py-5">
+                  <h3 className="font-fraunces text-3xl font-extrabold">Description</h3>
+                  <p className="whitespace-pre-wrap font-barlow text-xl font-medium text-zinc-700">
+                    {project.description}
+                  </p>
+
+                  <a
+                    className="text-xl font-extrabold uppercase transition-colors hover:text-white self-start duration-300"
+                    href={`/${project.pageName}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    demo link
+                  </a>
+                </div>
               </AccordionDetails>
             </Accordion>
           );
