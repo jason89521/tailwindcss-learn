@@ -13,7 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 
   const images = filenames.map(filename => {
     const src = `/images/demo-image/${filename}`;
-    const name = filename.replaceAll('-', ' ');
+    const name = filename.replace(/-/g, ' ');
 
     return {
       src,
