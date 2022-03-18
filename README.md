@@ -13,4 +13,4 @@ This project was built to get familiar with Tailwind CSS. The home page will lis
 
 ## Where are the corresponding files?
 
-The corresponding files are placed in the `pages` folder. For example, if you want to find the corresponding file of `profile-card-component`, the file is placed in `pages/profile-card-component`.
+Each project has their own page file in `pages` folder, and the components file are placed in `components/{project-name}` folder. For example, if you want to find the corresponding files of `sunnyside-agency-landing-page`, the page file is `pages/sunnyside-agency-landing-page.tsx` and all the components files will be placed in `components/sunnyside-agency-landing-page` folder.
