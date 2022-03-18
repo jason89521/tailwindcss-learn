@@ -8,11 +8,12 @@ type Data = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const dir = path.resolve('public', 'images/demo-image');
-  const filenames = fs.readdirSync(dir);
+  const projectsDir = path.resolve('public', 'projects');
+  const imagesFilenames = fs.readdirSync(projectsDir + '/images');
+  const descriptionsFilenames = fs.readdirSync(projectsDir + '/descriptions');
 
-  const images = filenames.map(filename => {
-    const src = `/images/demo-image/${filename}`;
+  const images = imagesFilenames.map(filename => {
+    const src = `/projects/images/${filename}`;
     const name = filename.replace(/-/g, ' ');
 
     return {
@@ -20,6 +21,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
       name: name.slice(0, -4),
     };
   });
+
+  const textFile = fs.readFileSync('./public/projects/descriptions/test.txt', 'utf-8');
+  console.log(textFile);
 
   res.status(200).json({ images: images });
 }

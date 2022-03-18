@@ -2,17 +2,18 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import type { ProjectData } from './api/projects';
 import Accordion, { AccordionSummary, AccordionDetails } from 'components/Accordion';
 import expandMoreIcon from 'public/images/icons/expand-more.svg';
 
 const Home = () => {
-  const [images, setImages] = useState<{ name: string; src: string }[]>([]);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await fetch('api/images');
+      const res = await fetch('api/projects');
       const data = await res.json();
-      setImages(data.images);
+      setProjects(data);
     };
 
     fetchImages();
@@ -27,10 +28,10 @@ const Home = () => {
       <main className="p-20">
         <h1 className="mb-10 text-center font-fraunces text-6xl font-bold uppercase text-slate-500">Projects list</h1>
 
-        {images.map(image => {
+        {projects.map(project => {
           return (
             <Accordion
-              key={image.name}
+              key={project.name}
               className="mb-5 rounded-lg bg-slate-400 px-10  text-slate-700 shadow-lg last:mb-0"
             >
               <AccordionSummary className="flex cursor-pointer items-center gap-5 py-5">
@@ -43,28 +44,24 @@ const Home = () => {
                         alt="expand more"
                         className={`${iconRotate} duration-250 transition-transform`}
                       />
-                      <h2 className="font-fraunces text-4xl font-bold capitalize">{image.name}</h2>
+                      <h2 className="font-fraunces text-4xl font-bold capitalize">{project.name}</h2>
                     </>
                   );
                 }}
               </AccordionSummary>
               <AccordionDetails className="flex gap-10 py-5">
-                <a href={image.src} target="_blank" rel="noreferrer">
-                  <div key={image.name} className="relative h-[250px] w-[500px] shrink-0">
+                <a href={project.image} target="_blank" rel="noreferrer">
+                  <div className="relative h-[250px] w-[500px] shrink-0">
                     <Image
-                      src={image.src}
-                      alt={image.name}
+                      src={project.image}
+                      alt={project.name}
                       layout="fill"
                       objectFit="cover"
                       objectPosition={`top left`}
                     />
                   </div>
                 </a>
-                <p className="text-xl">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum numquam assumenda ducimus tempore, nihil
-                  dicta repudiandae iure eaque magnam est odit, ratione nostrum accusamus consectetur dolorem, porro
-                  quos illo. Voluptatem?
-                </p>
+                <p className="text-xl">{project.description}</p>
               </AccordionDetails>
             </Accordion>
           );
