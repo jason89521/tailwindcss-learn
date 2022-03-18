@@ -8,7 +8,7 @@ type Data = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const dir = path.resolve('./public', 'images/demo-image');
+  const dir = path.resolve('public', 'images/demo-image');
   const filenames = fs.readdirSync(dir);
 
   const images = filenames.map(filename => {
