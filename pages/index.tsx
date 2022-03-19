@@ -1,24 +1,25 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import fs from 'fs';
+import path from 'path';
 
-import type { ProjectData } from './api/projects';
 import Accordion, { AccordionSummary, AccordionDetails } from 'components/Accordion';
 import expandMoreIcon from 'public/images/icons/expand-more.svg';
+import { GetStaticProps } from 'next';
 
-const Home = () => {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
+type ProjectData = {
+  name: string;
+  description: string;
+  image: string;
+  pageName: string;
+};
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const res = await fetch('api/projects');
-      const data = await res.json();
-      setProjects(data);
-    };
+type HomeProps = {
+  projects: ProjectData[];
+};
 
-    fetchImages();
-  }, []);
-
+const Home = ({ projects }: HomeProps) => {
   return (
     <div>
       <Head>
@@ -83,3 +84,22 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async context => {
+  const projectsDir = path.resolve('public', 'projects');
+  const projectsName = fs.readdirSync(projectsDir);
+
+  const data = projectsName.map(projectName => {
+    const image = `/projects/${projectName}/image.png`;
+    const description = fs.readFileSync(`${projectsDir}/${projectName}/description.txt`, 'utf-8');
+    const name = projectName.replace(/-/g, ' ');
+    const pageName = projectName;
+    return { name, description, image, pageName };
+  });
+
+  return {
+    props: {
+      projects: data,
+    },
+  };
+};
